@@ -1,0 +1,32 @@
+# Vimlab creation script
+
+# Create new tmux session, and load tmux.conf
+new
+source-file ~/.tmux.conf
+
+# Split window into two panes
+splitw -h -p 50 
+
+# Start up MATLAB in one pane
+send-keys 'clear' Enter
+send-keys '/usr/local/MATLAB/R2013b/bin/matlab -nodesktop -nosplash -softwareopengl' Enter
+
+# Switch to other pane, and display a friendly greeting
+selectp -t 0
+send-keys 'printf "\033]2;VIMLAB\033\\"' Enter
+send-keys 'clear; printf "WELCOME TO VIMLAB, THE INFINITE IS POSSIBLE\n"' Enter
+
+# Set C-p for send current visual selection to matlab
+bind C-p run-shell "tmux set-buffer \"$(xclip -o)\;\"; tmux send-keys C-c; tmux paste-buffer -t %1; tmux send-keys -t %1 Enter"
+
+# Set C-f for run current file in matlab
+bind C-f run-shell "tmux send-keys C-f; tmux set-buffer \"$(xclip -o)\;\"; tmux send-keys -t %1 run Space; tmux paste-buffer -t %1; tmux send-keys -t %1 Enter"
+
+# Set Title 
+set-option -g set-titles on
+set-option -g set-titles-string 'VIMLAB - Where the Infinite is Possible'
+
+# Establish Matlab detaching system
+bind C-r set-option -g set-titles-string 'VIMLAB - Where the Infinite is Possible. MATLAB DETACHED'\; break-pane -d -t %1
+bind C-t set-option -g set-titles-string 'VIMLAB - Where the Infinite is Possible.'\; join-pane -hs 0:1.0; 
+
