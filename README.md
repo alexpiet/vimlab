@@ -13,3 +13,6 @@ Configuration Files for integrating REPL editor of your choice and vim, replacin
 Debugging: 
   You need a vim installation with +clipboard. Generally installing a more complete vim installation is easy. 
   try vim-x11
+
+Update notes:
+tmux v2.1 changed mouse mode names
