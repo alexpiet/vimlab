@@ -100,5 +100,6 @@ set nomodeline
 " lines as possible without resorting to a list of @ columns
 set display+=lastline
 
-
+" Turn on syntax highlighting required to get color scheme to work
+syntax on
 
