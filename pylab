@@ -10,6 +10,7 @@ splitw -h -p 50
 # Start up python in one pane
 send-keys 'clear' Enter
 send-keys 'ipy' Enter
+send-keys 'colors linux' Enter
 
 # Switch to other pane, and display a friendly greeting
 selectp -t 0
