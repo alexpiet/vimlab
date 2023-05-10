@@ -30,9 +30,9 @@ set clipboard=unnamed
 
 " set up visual block mode to ctrl-Q
 " Doesn't work because tmux uses C-q as a hotkey
-nmap <C-q> v<C-v>
-imap <C-q> <C-o>v<C-v>
-vmap <C-q> <C-v>
+"nmap <C-q> v<C-v>
+"imap <C-q> <C-o>v<C-v>
+"vmap <C-q> <C-v>
 
 " Map a to i, because its more natural
 nmap a i
@@ -85,9 +85,9 @@ autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=en_us
 " ]s goto next bad word
 " zg add word to word list
 
-" Save file and put current filename with full path in buffer
-nmap <C-f> <C-s>:let @* = expand("%:p")<CR>
-imap <C-f> <Esc><C-s>:let @* = expand("%:p")<CR>i
+"" Save file and put current filename with full path in buffer
+"nmap <C-f> <C-s>:let @* = expand("%:p")<CR>
+"imap <C-f> <Esc><C-s>:let @* = expand("%:p")<CR>i
 
 "colorscheme delek
 colorscheme alex
@@ -100,6 +100,5 @@ set nomodeline
 " lines as possible without resorting to a list of @ columns
 set display+=lastline
 
-" Turn on syntax highlighting required to get color scheme to work
-syntax on
-
+" turn out silencing with space bar instead of typing :noh
+:noremap <Space> :noh<Bar>echo<CR>
