@@ -9,14 +9,12 @@ splitw -h -p 50
 
 # Start up python in one pane
 send-keys 'clear' Enter
-#send-keys 'conda activate visbeh' Enter
-send-keys 'conda activate aind' Enter
 send-keys 'ipy' Enter
 
 # Switch to other pane, and display a friendly greeting
 selectp -t 0
 send-keys 'printf "\033]2;VIMLAB\033\\"' Enter
-send-keys 'clear; printf "\n\n\t\t\tWelcome to PyLAB, the Infinite is possible\n\t\t\tready to analyze neural dynamics\n\n\n"' Enter
+send-keys 'clear; printf "\n\n\tWelcome to PyLAB, the Infinite is possible\n\tready to analyze neural dynamics\n\n\n"' Enter
 
 # Set C-p (no prefix) for send current visual selection in VIM to python pane
 bind-key -n C-p run-shell "tmux set-buffer \"$(xclip -o)\;\"; tmux send-keys C-c; tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer -t %1; tmux send-keys -t %1 Enter"
