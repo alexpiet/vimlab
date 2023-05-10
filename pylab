@@ -9,24 +9,28 @@ splitw -h -p 50
 
 # Start up python in one pane
 send-keys 'clear' Enter
-send-keys 'python' Enter
+#send-keys 'conda activate visbeh' Enter
+send-keys 'conda activate aind' Enter
+send-keys 'ipy' Enter
 
 # Switch to other pane, and display a friendly greeting
 selectp -t 0
 send-keys 'printf "\033]2;VIMLAB\033\\"' Enter
-send-keys 'clear; printf "\n\n\tWelcome to PyLAB, the Infinite is possible\n\tnow in Python, using very advanced algorithms\n\n\n"' Enter
+send-keys 'clear; printf "\n\n\t\t\tWelcome to PyLAB, the Infinite is possible\n\t\t\tready to analyze neural dynamics\n\n\n"' Enter
 
-# Set C-p for send current visual selection to matlab
-bind C-p run-shell "tmux set-buffer \"$(xclip -o)\;\"; tmux send-keys C-c; tmux paste-buffer -t %1; tmux send-keys -t %1 Enter"
+# Set C-p (no prefix) for send current visual selection in VIM to python pane
+bind-key -n C-p run-shell "tmux set-buffer \"$(xclip -o)\;\"; tmux send-keys C-c; tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer -t %1; tmux send-keys -t %1 Enter"
 
-# Set C-f for run current file in matlab
-bind C-f run-shell "tmux send-keys C-f; tmux set-buffer \"$(xclip -o)\;\"; tmux send-keys -t %1 run Space; tmux paste-buffer -t %1; tmux send-keys -t %1 Enter"
+# Set C-l (no prefix) to send the current line of VIM to python pane
+bind-key -n C-l run-shell "tmux send-keys V; tmux set-buffer \"$(xclip -o)\;\"; tmux send-keys C-c; tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer -t %1; tmux send-keys -t %1 Enter; tmux send-keys Enter"
 
 # Set Title 
-#set-option -g set-titles on
-#set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible'
+set-option -g set-titles on
+set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible, now with weird computer magic'
 
 # Establish Matlab detaching system
-#bind C-r set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible. PYTHON DETACHED'\; break-pane -d -t %1
-#bind C-t set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible.'\; join-pane -hs 0:1.0; 
+#bind C-r set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible, now with weird computer magic. PYTHON DETACHED'\; break-pane -d -t %1
+#bind C-t set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible, now with weird computer magic.'\; join-pane -hs 0:1.0; 
+#bind t set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible, now with weird computer magic.'\; join-pane -hs 0:1.0; 
+#bind r set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible, now with weird computer magic. PYTHON DETACHED'\; break-pane -d -t %1
 
