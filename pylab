@@ -15,7 +15,7 @@ send-keys 'colors linux' Enter
 # Switch to other pane, and display a friendly greeting
 selectp -t 0
 send-keys 'printf "\033]2;VIMLAB\033\\"' Enter
-send-keys 'clear; printf "\n\n\tWelcome to PyLAB, the Infinite is possible\n\tready to analyze neural dynamics\n\n\n"' Enter
+send-keys 'clear; printf "\n\n\tWelcome to PyLAB, the infinite is possible\n\tnow ready to analyze neural dynamics\n\n\n"' Enter
 
 # Set C-p (no prefix) for send current visual selection in VIM to python pane
 bind-key -n C-p run-shell "tmux set-buffer \"$(xclip -o)\;\"; tmux send-keys C-c; tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer -t %1; tmux send-keys -t %1 Enter"
@@ -25,11 +25,5 @@ bind-key -n C-l run-shell "tmux send-keys V; tmux set-buffer \"$(xclip -o)\;\"; 
 
 # Set Title 
 set-option -g set-titles on
-set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible, now with weird computer magic'
-
-# Establish Matlab detaching system
-#bind C-r set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible, now with weird computer magic. PYTHON DETACHED'\; break-pane -d -t %1
-#bind C-t set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible, now with weird computer magic.'\; join-pane -hs 0:1.0; 
-#bind t set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible, now with weird computer magic.'\; join-pane -hs 0:1.0; 
-#bind r set-option -g set-titles-string 'PyLAB - Where the Infinite is Possible, now with weird computer magic. PYTHON DETACHED'\; break-pane -d -t %1
+set-option -g set-titles-string 'PyLAB - Where the infinite is possible, with weird computer magic'
 
