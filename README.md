@@ -16,3 +16,5 @@ Debugging:
 
 Update notes:
 tmux v2.1 changed mouse mode names
+
+test from code ocean
