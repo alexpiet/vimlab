@@ -91,6 +91,7 @@ autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=en_us
 
 "colorscheme delek
 colorscheme alex
+syntax on
 
 set nomodeline
 "highlight ColorColumn ctermbg=black
