@@ -5,7 +5,7 @@ new
 source-file ~/.tmux.conf
 
 # Split window into two panes
-splitw -h -p 50 
+splitw -h -l 50% 
 
 # Start up python in one pane
 send-keys 'clear' Enter
